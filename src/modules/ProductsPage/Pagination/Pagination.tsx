@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const Pagination: React.FC<Props> = ({ elementOnPage, total }) => {
-  const pages = [];
+  const pages: number[] = [];
   const [searchParams, setSearchParams] = useSearchParams();
   const activePage = Number(searchParams.get('page')) || 1;
 
@@ -30,9 +30,43 @@ export const Pagination: React.FC<Props> = ({ elementOnPage, total }) => {
     return null;
   }
 
+
+
+  const changePage = (param : 'add' | 'substract') => {
+
+    
+
+    if(param === 'add' && activePage < pages[pages.length -1 ]) {
+
+      setSearchParams(prev => {
+      const params = new URLSearchParams(prev);
+
+      params.set('page', String(activePage + 1));
+
+      return params;
+    });
+    }
+
+
+    if (param === 'substract' && activePage > 1) {
+
+      setSearchParams(prev => {
+      const params = new URLSearchParams(prev);
+
+      params.set('page', String(activePage - 1));
+
+      return params;
+    });
+
+    }
+
+  }
+
   return (
     <ul className={styles.pagination}>
-      <button className={styles.button__left}></button>
+      <button className={`${styles.button__left} ${activePage === 1 ? styles.disabled : '' }`} 
+      
+      onClick={() => changePage('substract') }></button>
 
       <div className={styles.elements__container}>
         {pages.map(page => (
@@ -46,7 +80,8 @@ export const Pagination: React.FC<Props> = ({ elementOnPage, total }) => {
         ))}
       </div>
 
-      <button className={styles.button__rigth}></button>
+      <button className={`${styles.button__rigth} ${activePage === pages[pages.length -1 ] ? styles.disabled : ''}`} 
+      onClick={() => changePage('add') }></button>
     </ul>
   );
 };

@@ -17,6 +17,7 @@
 .button__container{
   display: flex;
   gap: 16px;
+  align-items: center;
 
 
 
@@ -41,8 +42,8 @@
       left: 50%;
       width: 6px;
       height: 6px;
-      border-top: 2px solid $gray;
-      border-right: 2px solid $gray;
+      border-top: 2px solid $gray_primary;
+      border-right: 2px solid $gray_primary;
       transition: border-color 0.2s;
     }
 
@@ -50,15 +51,9 @@
       border: 1px solid $gray_primary;
     }
 
-    &:active {
-      border: 1px solid $gray;
-
-      &::before {
-        border-top: 2px solid $gray;
-        border-right: 2px solid $gray;
-      }
-    }
+    
 }
+
 
 
 
@@ -77,8 +72,15 @@
 }
 
 
+.button__left.disabled::before{
+  border-top: 2px solid $gray;
+  border-right: 2px solid $gray;
+}
 
-
+.button__rigth.disabled::before{
+  border-top: 2px solid $gray;
+  border-right: 2px solid $gray;
+}
 
 
 .slider {

@@ -7,11 +7,14 @@
   align-items: center;
   height: 48px;
   width: 100%;
-
+  
   border-bottom: #E2E6E9 2px solid;
   justify-content: space-between;
 
-
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
 
 
 

@@ -20,7 +20,7 @@ const ScrollToTop = ({ children }: PropsWithChildren) => {
       }
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, [pathname, search, hash]);
 
   return <>{children}</>;

@@ -37,7 +37,7 @@
       width: 6px;
       height: 6px;
       border-top: 2px solid $gray_primary;
-        border-right: 2px solid $gray_primary;
+      border-right: 2px solid $gray_primary;
       transition: border-color 0.2s;
     }
 
@@ -59,6 +59,20 @@
 
 .button__rigth::before{
   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+.button__left.disabled::before {
+
+border-top: 2px solid $gray;
+border-right: 2px solid $gray;
+
+}
+
+
+.button__rigth.disabled::before{
+  border-top: 2px solid $gray;
+border-right: 2px solid $gray;
 }
 
 
